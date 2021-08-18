@@ -1,0 +1,29 @@
+.myHeader {
+    background-color: rgb(24, 24, 24);
+    color: #FFF;
+    width: 100%;
+    display: flex;
+    text-align: center;
+}
+
+.header-left-part {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.header-right-part {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+}
+
+.spacer {
+    width: 15%;
+    height: 100%;
+    background-color: rgb(0, 136, 255);
+}
+
+
+
+
