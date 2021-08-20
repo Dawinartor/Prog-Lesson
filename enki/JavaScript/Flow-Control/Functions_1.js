@@ -78,5 +78,30 @@ function useBeforeDeclaration() {
 //!let zeiger = function() {return 'Ich Zeige dir den Weg';} //! Fehler
 
 //? Wie verwendet man "short circuiting"?
+function title(title) { // Diese Funktion als "short circuiting"
+    if(!title) {
+        t = "Undtitled";
+    }
+}
+
+function titleSC(title) { //-> "short circuiting" ist die Verwendung von "||"
+    title = title || "Untitled"; //! Pruefe ob parameter einen Wert hat, sonst wird Wert definiert.
+    return title;
+}
+
+console.log(titleSC(""));
+
+//! Eine bessere Praktik ist, dass setzten von standart Werten
+function titleSCD(title = "Untitled") {
+    return "parameter with default value";
+}
+
+//! Wenn "null" & "undefined" verhindert werden soll, jedoch alles andere erlaubt ist
+function tileNew(title) {
+    title = title ?? "Untitled" //-> Der "Nullish coalescing operator [??]"
+    return title;   	        //-> Wenn Parameter "null" oder "undefined", dann "Untitled" als Rueckgabe.
+}
+
+console.log(tileNew(undefined));
 
 
