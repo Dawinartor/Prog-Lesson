@@ -104,4 +104,20 @@ function tileNew(title) {
 
 console.log(tileNew(undefined));
 
+//? Was ist der 'strict mode'
+//! Der in diesem Modus achtet der Interpereter explizit ob gewisse Schluesselworter vorhanden sind.
+//-> Der modus wird in bestimmten "scopes" definiert.
+
+// Am Anfang eines Dokuments, um fuer das gesammte Script den Modus zu behalten
+'use strict';
+// Innerhalb einer Funktion
+function strictFunction() {
+    'use strict';
+    hello = {lo: "ol"}; 
+    return hello; // Fehler
+}
+
+//console.log(strictFunction());
+
+
 
