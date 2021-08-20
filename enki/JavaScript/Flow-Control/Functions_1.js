@@ -97,19 +97,19 @@ function titleSCD(title = "Untitled") {
 }
 
 //! Wenn "null" & "undefined" verhindert werden soll, jedoch alles andere erlaubt ist
-function tileNew(title) {
+function titleNew(title) {
     title = title ?? "Untitled" //-> Der "Nullish coalescing operator [??]"
     return title;   	        //-> Wenn Parameter "null" oder "undefined", dann "Untitled" als Rueckgabe.
 }
 
-console.log(tileNew(undefined));
+console.log(titleNew(undefined));
 
 //? Was ist der 'strict mode'
 //! Der in diesem Modus achtet der Interpereter explizit ob gewisse Schluesselworter vorhanden sind.
 //-> Der modus wird in bestimmten "scopes" definiert.
 
 // Am Anfang eines Dokuments, um fuer das gesammte Script den Modus zu behalten
-'use strict';
+//'use strict';
 // Innerhalb einer Funktion
 function strictFunction() {
     'use strict';
@@ -119,5 +119,44 @@ function strictFunction() {
 
 //console.log(strictFunction());
 
+//? Wie arbeite ich mit Arrays
+let myArray = [1, 2, 3];
+let anotherArray = ["a", "b", "c"];
 
+console.log(myArray[0]);
+console.log(myArray[myArray.length - 1]);
+
+//? Wie fuege ich Werte einem Array hinzu
+myArray.push("4");
+function bla() {
+   return myArray[3] === "4" ? "True" : "False";
+}
+
+console.log(bla());
+
+//? Wie entferne ich Werte aus einem Array
+//console.log(myArray.pop());
+//? Wie pruefe ob mein Element ein String ist
+console.log(typeof myArray[3] === 'string');
+
+//? Wie iteriere ich durch ein Array
+for(let item of myArray) {
+    console.log(item);
+}
+
+//? Setzte manuel die Array Laenge fest
+let mySizedArray = ["one", "two", "three", "four"];
+mySizedArray.length = 2;
+
+for(let item of mySizedArray) {
+    console.log(item); // Hat nur noch zwei Objekte
+}
+
+mySizedArray.length = 0;
+console.log(mySizedArray); // Jetzt ist es ein leeres Array
+
+//? Was macht die "spice" Funktion bei Arrays
+let zarray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+console.log(zarray.splice(2, 7, 11, 12)); // loeascht alle Elemente ab dem 3. & Fuegt 11 und 12 hinzu
+console.log(zarray);
 
