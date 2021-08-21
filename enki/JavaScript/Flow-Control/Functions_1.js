@@ -160,3 +160,108 @@ let zarray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 console.log(zarray.splice(2, 7, 11, 12)); // loeascht alle Elemente ab dem 3. & Fuegt 11 und 12 hinzu
 console.log(zarray);
 
+// Ales was nicht "primitive" Datentypen sind werden als "Object" gezählt
+
+//? Wie werden Objekte erstellt
+//! Mit dem "Objekt initializer"
+let person = {
+    firstName: "John",
+    lastName: "Smith"
+};
+
+//-> Die Objekt "properties" koennen Werte und Funktionen sein
+let anotherPerson = {
+    name: "Melamed",
+    secondName: "David",
+    showName: () => {console.log(anotherPerson.name)},
+    showSecondName: function () {console.log(anotherPerson.secondName)}
+};
+
+anotherPerson.showName();
+anotherPerson.showSecondName();
+
+//-> Eigenschaften lassen sich in Array-Syntax abrufen
+let propName = "firstName";
+console.log(person[propName]); // ruft "person.firstName" auf
+
+//-> Unterschiedliche Zugriffsmoeglichkeiten auf Objekte
+//* Die "dot" notation
+person.firstName = "Lara";
+//* Die "Eckige Klammern" notation
+person["lastName"] = "Müller";
+
+//? Wie werden "Constructor Funktionen" erstellt
+//! Constructor funktionen sind wie Klassen Funktionen in Java
+ function Person(firstName, lastName) {
+     this.firstName = firstName;
+     this.lastName = lastName;
+     // this.showName = console.log(Person.firstName + " " + Person.lastName);
+ }
+
+ let person1 = new Person("Boby", "Wick");
+ console.log(person1.firstName);
+
+//? Wie koennen Objekt-Eigenschaften geloescht werden
+let firstPerson = {
+    title: "Mr",
+    firstName: "Mandy",
+    secondName: "Griffler"
+};
+
+//-> Werden Eigenschaften auf "null" oder "undefined" gesetzt bleiben diese erhalten.
+//->   Nur der Wert der Eigenschaft aendert sich
+
+firstPerson.title = undefined;
+console.log(firstPerson);
+
+firstPerson.title = null;
+console.log(firstPerson);
+
+delete firstPerson.title; //! Entfernt die Eigenschaft des Objekts
+console.log(firstPerson);
+
+//? Wie wird die "hasOwnProperty()" Methode verwendet
+let client = new Object();
+client.connect = 'true';
+
+function foo() {
+    client.newConnect = client.connect
+    delete client.connect
+}
+
+//! Fragt ob Eigenschaft in dem Objekt vorhanden ist
+console.log(client.hasOwnProperty('connect')); // true
+//! Loescht Eigenschaft aus Objekt
+console.log(foo());
+//! Fragt erneut
+console.log(client.hasOwnProperty('connect')); // false
+
+//-> Es ist eine gute Praktik in einem "for...in" erst nach hasOwnProperty() zu fragen.
+//->   Danach den Wert der Eigenschaft anzufragen
+
+//? Wie Konvertiere ich die Werte von & zu JSON
+const ourDog = {
+    name: 'Leo',
+    'dog years': 14
+};
+//! Die Ausgabe ist ein String im JSON-Format
+console.log(JSON.stringify(ourDog));
+
+//* Das Verhalten der Funtkion stringify() kann ueberschrieben werden
+const ourSecondDog = {
+    name: 'Leo',
+    age: 2,
+    'dog years': 14,
+    toJSON: () => { //! Hier bekommt die Funktion des Objekts eine ueberschriebene Funktion
+        return {
+            food: 'dog snack'
+        };
+    }
+};
+
+console.log(JSON.stringify(ourSecondDog));
+
+//* Um den JSON wieder in JS zuruck zu bringen
+const ourJSON = '{"name":"Leo","dog years":14}'
+const dog = JSON.parse(ourJSON);
+console.log(dog);
