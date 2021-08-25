@@ -48,8 +48,10 @@ for(let word in A) {
         console.log(letter);
     }
     console.log(A[word].split(""));
-
 }
+
+//* TODO: Split sentence in words and words in letters. Pust them in seperate array an check if sentence as 
+//*       splittet array is equal to second array
 
 
 
