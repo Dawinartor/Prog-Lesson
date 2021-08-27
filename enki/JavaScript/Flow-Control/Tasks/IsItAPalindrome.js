@@ -20,41 +20,18 @@ function changeWordOrder(word) {
     return output;
 }
 
-function changeSentenceOrder(sentence) {
-    let sentenceChangedOrder = [];
-
-    for (let word in sentence) {
-            console.log(changeWordOrder(sentence[word]));    
-            sentenceChangedOrder.push(changeWordOrder(sentence[word]));
-    }
-     return sentenceChangedOrder;
-}
-
-function isItAPalindrome(input) {
-    let sentence = input.split(" ");
-    let resA = changeSentenceOrder(sentence);
-    let resB = resA.join(" ");
-    console.log(resB);
-    console.log(sentence);
-}
-
-//isItAPalindrome(palindrome);
-
-let A = palindrome.split(" ");
-let C = [];
-
-for(let word in A) {
-    for(let letter in A[word]) {
-        console.log(letter);
-    }
-    console.log(A[word].split(""));
-}
-
 //* TODO: Split sentence in words and words in letters. Pust them in seperate array an check if sentence as 
 //*       splittet array is equal to second array
 
+function isItAPalindrome(input=palindrome) {
+    /**
+     * Split sentence in words and words in letters. 
+     * Put them in seperate array an check if sentence as splittet array is equal to second array
+     */
+    let A = changeWordOrder(input.split(" ").join("").toString().toLowerCase()).toString().replaceAll(",", "");
+    let B = input.split(" ").join("").toLowerCase();
+    return A == B;
+}
 
-
-
-
+console.log(isItAPalindrome("Lagerregal"));
 
