@@ -33,5 +33,5 @@ function isItAPalindrome(input=palindrome) {
     return A == B;
 }
 
-console.log(isItAPalindrome("Lagerregal"));
+//console.log(isItAPalindrome("Lagerregal"));
 
