@@ -21,5 +21,5 @@ for(let counter = 0; counter <= 500; counter++) {
         statisticsFood.Tacos++;
     }    
 }
-show("Done: ");
-show(statisticsFood);
+//show("Done: ");
+//show(statisticsFood);
