@@ -37,3 +37,30 @@ console.log(multiply3(5, 6));
 let multiply4 = function mult(x, y) {
     return x * y;
 }
+
+// Selbst ausloesende Funktionen
+(function(){
+    console.log("Selbst auslöser");
+}());
+
+(function(){
+    console.log("Selbst auslöser");
+})();
+
+// Sauberer scope um ganzen Code im DOM erreichbar zu machen
+/*
+(function(global) {
+    function fun() {
+        return "Hello World!";
+    }
+    global.fun = fun;
+})(window); // window ist vorhanden als pre-definierte HTML Variable
+ */
+
+// Funktionen sind Objekte
+let add = function enki(x, y) {
+    return x + y;
+}
+
+console.log(add(4, 7));
+
