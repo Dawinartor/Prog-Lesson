@@ -49,3 +49,21 @@ function bar(foo) {
 }
 
 bar();
+
+// Closures: Ein Scope und seine Funktion in einer anderen Funktion drin
+function thing(val) {
+    let code = "coding is";
+
+    return function bar2() {
+        // bar has access to code
+        // and to val even after
+        // it is returned from foo
+        return code + " " + val;
+    }
+}
+
+// die funktion muss einer Variable zugewiesen werden
+console.log(thing("fun")); // Zeigt was im Objekt drin ist
+// muss so:
+let things = thing("fun");
+console.log(things("fun"));
