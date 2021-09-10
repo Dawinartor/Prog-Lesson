@@ -9,12 +9,12 @@ function validate(input="", constraints=null, level=0) {
  */
 
     // checking level what have to be checked
-    const level = {
-        characters: 0, // username is between x and y characters.
-        starting: 1, // start with a letter.
-        containing: 2, // contain letters, numbers, and the underscore character
-        ending: 3, // cannot end with an underscore character.
-        all: 4 //
+    const ENUM = {
+        characters: 1, // username is between x and y characters.
+        starting: 2, // start with a letter.
+        containing: 3, // contain letters, numbers, and the underscore character
+        ending: 4, // cannot end with an underscore character.
+        all: 5 //
     }
 
     // if validation is successful 'true' else 'false'
@@ -22,7 +22,7 @@ function validate(input="", constraints=null, level=0) {
 
     // check level and act 
     switch(level) {
-        case 0: // TODO: Use mochaJS to test this thing
+        case ENUM.characters: // TODO: Use mochaJS to test this thing
             if(constraints != null && (constraints[0] > 0 && constraints[1] < 65)) {
                 var min = constraints[0]; 
                 var max = constraints[1];
@@ -36,16 +36,16 @@ function validate(input="", constraints=null, level=0) {
                 validate = true;
                 return {validate, input};
             }
-        case 1:
+        case ENUM.starting:
             // Check how many & which constrains
             // check input for constraints
-        case 2:
+        case ENUM.containing:
             // Check how many & which constrains
             // check input for constraints
-        case 3:
+        case ENUM.ending:
             // Check how many & which constrains
             // check input for constraints
-        case 4:
+        case ENUM.all:
             // Check how many & which constrains
             // check input for constraints
         default:
@@ -54,5 +54,7 @@ function validate(input="", constraints=null, level=0) {
     }
 }
 
+const unicorn = 9.9981;
+
 // exporting the function
-export { validate };
+export { validate, unicorn };
