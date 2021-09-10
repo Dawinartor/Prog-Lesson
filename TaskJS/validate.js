@@ -54,4 +54,5 @@ function validate(input="", constraints=null, level=0) {
     }
 }
 
-validate
+// exporting the function
+export { validate };
