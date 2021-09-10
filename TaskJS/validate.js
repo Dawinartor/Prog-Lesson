@@ -1,6 +1,6 @@
 'use strict;'
 
-function validate(input="", constraints=null, level=0) {
+function validate(input="", constraints=null, level=0) { // level is a local variable
 /**
  * Validates input by given constraints depending on level
  * @param {string} input String which have to be validate
@@ -14,15 +14,17 @@ function validate(input="", constraints=null, level=0) {
         starting: 2, // start with a letter.
         containing: 3, // contain letters, numbers, and the underscore character
         ending: 4, // cannot end with an underscore character.
-        all: 5 //
+        all: 5 // Check all those cases
     }
 
     // if validation is successful 'true' else 'false'
     let validate = false;
 
     // check level and act 
-    switch(level) {
-        case ENUM.characters: // TODO: Use mochaJS to test this thing
+    switch(level) { // TODO: Use mochaJS to test this thing
+
+        case ENUM.characters: // username is between x and y characters.
+
             if(constraints != null && (constraints[0] > 0 && constraints[1] < 65)) {
                 var min = constraints[0]; 
                 var max = constraints[1];
@@ -36,16 +38,26 @@ function validate(input="", constraints=null, level=0) {
                 validate = true;
                 return {validate, input};
             }
-        case ENUM.starting:
+
+        case ENUM.starting: //! start with a letter.
+
+            const checkingPattern = /[a-z]/i;
+
+            if(input[0].match(checkingPattern) == null) {
+                console.log("Something went wrong with your input");
+                return "Something went wrong with your input";
+            } else {
+                validate = true;
+                return {validate, input};
+            }
+            
+        case ENUM.containing: //! contain letters, numbers, and the underscore character
             // Check how many & which constrains
             // check input for constraints
-        case ENUM.containing:
+        case ENUM.ending: //! cannot end with an underscore character.
             // Check how many & which constrains
             // check input for constraints
-        case ENUM.ending:
-            // Check how many & which constrains
-            // check input for constraints
-        case ENUM.all:
+        case ENUM.all: //! Check all those cases
             // Check how many & which constrains
             // check input for constraints
         default:
