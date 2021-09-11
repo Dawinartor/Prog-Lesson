@@ -10,7 +10,7 @@ var expectedValues = {
 console.log(expectedValue)
 
 let expectedValue = {expectedValues[validate] , expectedValues.input};
-//! WHAT is wrong here?
+//! WHAT is wrong here?: Use object to check ffor correct values in Mocha
 assert.equal(validate("H3ll0#", [5, 13], 1), expectedValue, "Test case successfull TROLLOLOLOLO");
 assert.equal(validate("H3ll0#", [5, 13], 1), expectedValue, "Test case successfull TROLLOLOLOLO");
 
