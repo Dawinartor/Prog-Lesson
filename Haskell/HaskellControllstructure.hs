@@ -5,3 +5,5 @@ main =
     let x = 5
     in print $ myIf (x == 5) "is five" "is not five"
     
+-- Start a Haskell file with:
+    -- stack runghc "filename.hs"
