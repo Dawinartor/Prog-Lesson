@@ -27,4 +27,6 @@ div 92 10 -- out: 9
 92 `div` 10 -- out: 9
 -- use doubled functions and priority
 succ (succ 3) -- 1. (succ 3) = 4 / 2. succ 4
---
+-- Writte a function
+myFunction x1 x2 = x1 + x2
+myFunction 4 4
