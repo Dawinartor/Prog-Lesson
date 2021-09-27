@@ -30,3 +30,9 @@ succ (succ 3) -- 1. (succ 3) = 4 / 2. succ 4
 -- Writte a function
 myFunction x1 x2 = x1 + x2
 myFunction 4 4
+-- make modules loadable
+module MyFunc where
+-- create lists
+lostNumbers = [1, 3, 5, 3, 2, 4, 33, 12, 24]
+-- add list elements to other list
+lostNumbers ++ [55, 55, 55]
