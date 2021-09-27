@@ -36,3 +36,56 @@ module MyFunc where
 lostNumbers = [1, 3, 5, 3, 2, 4, 33, 12, 24]
 -- add list elements to other list
 lostNumbers ++ [55, 55, 55]
+-- add strings together
+stringOnString = "Hello" ++ " " ++ "World"
+
+-- putt element on end of list
+lostNumbers ++ [36, 48] --! iteration through left / but ineffizient with long lists
+-- putt element on begining of list
+'A' : stringOnString
+
+-- several kind of lists
+levelOneList = [] -- empty list
+levelTwoList = [[]] -- empty list which contains empty list
+levelThreeList =[[],[],[]] -- empty list which contains three empty lists
+
+-- access on specific space of a list / string
+stringOnString !! 4 -- out: 'o'
+lostNumbers !! 1 -- out: '3'
+
+-- manipulations with lists
+b = [[1,2,3,4],[5,3,3,3],[1,2,2,3,4],[1,2,3]]
+b ++ [[1,1,1,1]
+[6,6,6,6]:b
+b !! 2
+
+-- comparison of lists
+[3,2,1] > [2,1,0]
+[3,2,1] > [2,10,100]
+[3,4,2] > [3,4]
+[3,4,2] > [2,4]
+[3,4,2] == [3,4,2]
+
+-- futher functions with lists
+head [1,2,3,4] -- out: first element
+tail [5,4,3,2,1] -- out: all elements without head
+last [3,2,1] -- out: last element
+init [9,8,7] -- out: all elements without last element
+length [4,44,444,4444] -- out: 4
+null [1,2,3] -- out: False
+null [] -- out: True
+reverse [5,3,1] -- out: [1,3,5]
+take 3 [1,2,3,4,55] -- out: [1,2,3]
+drop 3 [8,4,2,1,5,6] --out: [1,5,6]
+drop 100 [1,2,3,4] -- out: []
+minimum [9,21,3,53,22,1] -- out: 1
+maximum [0,4,21,2,56,33,99] -- out: 99
+sum [4,2,4,5,11,2]
+product [1,2,3,4,5,6,7,8,9,99]
+
+-- check if element contains in list
+4 `elem` [3,4,5,6]
+14 `elem` [3,4,5,6]
+
+-- TODO: Continue with Texas ranges
+-- http://learnyouahaskell.com/starting-out#texas-ranges
