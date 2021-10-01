@@ -89,3 +89,7 @@ product [1,2,3,4,5,6,7,8,9,99]
 
 -- TODO: Continue with Texas ranges
 -- http://learnyouahaskell.com/starting-out#texas-ranges
+-- use Haskell the way like mathmatics is using it
+[x*2 | x <- [1..10]]  -- "x <- [1..10]" is definition for the input
+[x*2 | x <- [1..10], x*2 >= 12]  -- "x*2 >= 12" is definition for a condition
+
