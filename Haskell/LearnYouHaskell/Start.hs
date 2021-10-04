@@ -92,4 +92,37 @@ product [1,2,3,4,5,6,7,8,9,99]
 -- use Haskell the way like mathmatics is using it
 [x*2 | x <- [1..10]]  -- "x <- [1..10]" is definition for the input
 [x*2 | x <- [1..10], x*2 >= 12]  -- "x*2 >= 12" is definition for a condition
+[ x*y | x <- [2,5,10], y <- [8,10,11], x*y > 50]   -- zwei input variabeln und eine Bedingung
 
+-- Selbes funktioniert mit Strings
+ghci> let nouns = ["hobo","frog","pope"]  
+ghci> let adjectives = ["lazy","grouchy","scheming"]  
+ghci> [adjective ++ " " ++ noun | adjective <- adjectives, noun <- nouns] 
+
+-- selfmade length method version                 
+length' xs = sum[ 1 | _ <- xs] 
+
+length' xs = [ 1 | _ <- xs] -- takes elements and put "1" into a list
+sum -- is calculating the sum of the elements in the list
+
+-- remove specific parts of a string, works because of strings are lists
+removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]  
+
+-- compute through several lists packed in lists
+xxs = [[1,3,5,2,3,1,2,4,5],[1,2,3,4,5,6,7,8,9],[1,2,4,2,1,6,3,1,3,2,3,6]] 
+[ [ x | x <- xs, even x ] | xs <- xxs]  
+
+-- usage of pairs
+[(1,5),(3,4),(9,2)] -- [(1,2),(2,3,3)] it's not allowed to put three numbers in a list of pairs
+[(1,2),(3,4),(5,5,5)] -- this is not allowed
+
+-- functions for lists
+fst (8,11) -- returnes first element '8' of the touple
+snd (8,11) -- returnes second element of touple
+zip [1,2,3,4,5] ["one","two","three","four","five"] -- returnes one list with touples of elements of each element
+zip ["s","h","o","r","t","e","r"] ["s","h","o","r","t"] -- cuts the second list
+
+-- sentance of pythagoras
+let triangles = [ (a,b,c) | c <- [1..10], b <- [1..10], a <- [1..10] ]  -- 1) define input variables
+let rightTriangles = [ (a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2]  -- 2) define conditions
+let rightTriangles' = [ (a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2, a+b+c == 24] -- 3) add one condition more 
