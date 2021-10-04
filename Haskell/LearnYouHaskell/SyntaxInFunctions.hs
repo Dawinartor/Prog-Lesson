@@ -1,0 +1,1 @@
+-- http://learnyouahaskell.com/syntax-in-functions#pattern-matching
