@@ -1,0 +1,3 @@
+-- 1- Find a suitable and interesting topics from one of sustainable projects
+-- 2- Choose a best public dataset
+-- 3- Use Haskel to predict the target
