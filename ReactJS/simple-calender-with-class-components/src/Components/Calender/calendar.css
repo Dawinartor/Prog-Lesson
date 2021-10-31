@@ -45,13 +45,13 @@ tr {
 
 .day {
     cursor: pointer;
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
     line-height: 24px;
 }
 
 .current-day {
-    background-color: #4285f4;
+    background-color: #7b16ff;
     width: 28px;
     height: 28px;
     line-height: 28px;

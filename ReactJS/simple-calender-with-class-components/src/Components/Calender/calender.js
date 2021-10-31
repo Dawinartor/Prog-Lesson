@@ -5,8 +5,9 @@ import "./calendar.css";
 export default class Calender extends React.Component {
   constructor(props) {
     super(props);
-    this.width = props.width || "350px";
+    this.width = props.width || "550px";
     this.style = props.style || {};
+    this.style.width = this.width;
   }
 
   state = {
@@ -47,7 +48,40 @@ export default class Calender extends React.Component {
     return firstDay;
   };
 
-  render() {
+  SelectList = (props) => {
+
+    let popup = props.data.map((data) => {
+      return (
+        <div key={data}>
+          <a href="#">
+            {data}
+          </a>
+        </div>
+      );
+    });
+
+    return (
+      <div className="month-popup">
+        {popup}
+      </div>
+    );
+
+  }
+
+  MonthNav = () => {
+    
+    console.log(this.months);
+    return (
+      <span className="label-month">
+        {this.month()}
+        <this.SelectList data={this.months} />
+      </span>
+    );
+
+  }
+
+  render() { // Renders the main calendar part
+
     //Map the weekends, for example, Sun, Mon, etc. as <td>
     let weekdays = this.weekdaysShort.map((day) => {
       return (
@@ -60,7 +94,11 @@ export default class Calender extends React.Component {
     // Render blanks to keep the correct calender day structure
     let blanks = [];
     for (let i = 0; i < this.firstDayOfMonth(); i++) {
-      blanks.push(<td className="emptySlot">{""}</td>);
+      blanks.push(
+        <td key={i*3} className="emptySlot">
+          {""}
+        </td>
+      );
     }
 
     console.log("blanks: ", blanks);
@@ -108,10 +146,14 @@ export default class Calender extends React.Component {
     }); // initinal values to avoid errors
 
     return (
-      <div className="calender-container">
+      <div className="calender-container" style={this.style}>
         <table className="calender">
           <thead>
-            <tr className="calender-header"></tr>
+            <tr className="calender-header">
+              <td colSpan="5">
+                <this.MonthNav />
+              </td>
+            </tr>
           </thead>
           <tbody>
             <tr>{weekdays}</tr>
@@ -120,5 +162,7 @@ export default class Calender extends React.Component {
         </table>
       </div>
     );
+
   }
-}
+
+} // closes the calender React.Component
