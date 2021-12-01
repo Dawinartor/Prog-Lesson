@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import img1 from '.././src/Room.jpg';
 // import my component
 import { Ordersummary } from './component/ordersummary/Ordersummary.js';
+import { EstablishConn } from './component/connDBtoNodeJS/EstablishConn.js';
 
 // multi line components in brackets
 const myList = (
@@ -131,8 +132,19 @@ class SeaAnemones extends React.Component {
     }
 }
 
+class DatabaseData extends React.Component {
+  render() {
+    let tableKeys = EstablishConn.orderReservation();
+    return (
+      <div>
+        <h1>{tableKeys}</h1>
+      </div>
+    );
+  }
+}
+
 
 
 ReactDOM.render(
-    <Ordersummary imageSrc={amazingCat.src} />, document.getElementById('root')
+    <DatabaseData />, document.getElementById('root')
 );
