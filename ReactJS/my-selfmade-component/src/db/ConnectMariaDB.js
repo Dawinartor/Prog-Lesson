@@ -44,9 +44,8 @@ function getEntrys(querryCommand) {
  * @param {JSON} entry - The whole entry as JSON object
  */
  function insertEntry(entry) {
-    let databaseName = "Reservations";
-    let reservationEntry;
-    //pool.ins
+    let sqlCommand = `INSERT INTO Reservations ()${entry.LastName}`; // check if not empty
+    console.log(sqlCommand);
 }
 
 //~ Additional services
@@ -89,32 +88,12 @@ function createEntry(roomNumber, firstName, lastName, eMail, dateTime, machine) 
     return insertEntry;
 }
 
-
-/*
-let myPromise = new Promise((myResolve, myReject) => {
-// "Producing Code" (May take some time)
-
-    myResolve(); // when successful
-    myReject(); // when error
-});
-
-myPromise.then(
-    
-    // code if successful
-    function(value) { 
-        console.log("Promise was successfull");
-    },
-
-    // code if some error
-    function(error) { 
-        console.log("Promise was successfull");
-    }
-);
-*/
-
+//TODO: Add Promise
 
 connectDatabase();
 let sqlCommand = buildQuerryCall();
-getEntrys(buildQuerryCall());
+//getEntrys(buildQuerryCall());
 disconnectDatabase();
-console.log(createEntry(1, "1", "1", 1, "1111-11-11T11:11:11.111Z", 1));
+
+let testEntry = createEntry(1, "1", "1", 1, "1111-11-11T11:11:11.111Z", 1);
+insertEntry(testEntry);
