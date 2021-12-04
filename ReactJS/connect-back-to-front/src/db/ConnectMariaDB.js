@@ -1,3 +1,4 @@
+const { now } = require('moment');
 const mariaDB = require('mysql');
 
 // Global variable to use database
@@ -48,14 +49,13 @@ function getEntrys(querryCommand) {
 
     // Look through keys
     let insert = `INSERT INTO Reservations (${Object.keys(entry)[0]}, ${Object.keys(entry)[1]}, ${Object.keys(entry)[2]}, ${Object.keys(entry)[3]}, ${Object.keys(entry)[4]}, ${Object.keys(entry)[5]})`;
-    let into = `VALUES (${entry[0]}, ${entry[1]}, ${entry[2]}, ${entry[3]}, ${entry[4]}, ${entry[5]});`;
+    let into = `VALUES (${entry.RoomNumber}, ${entry.FirstName}, ${entry.LastName}, ${entry.Email}, ${entry.DateTime}, ${entry.Machine});`;
 
     let sqlCommand = insert + ' ' + into;
     pool.query(sqlCommand, function (err, result) {
         if (err) throw err;
         console.log("result");
       });
-
 }
 
 //~ Additional services
@@ -106,10 +106,12 @@ function createEntry(roomNumber, firstName, lastName, eMail, dateTime, machine) 
 
 //TODO: Add Promise
 
-connectDatabase();
+//connectDatabase();
 //let sqlCommand = buildQuerryCall();
 //getEntrys(buildQuerryCall());
 //disconnectDatabase();
 
-let testEntry = createEntry(1, "1", "1", 1, "1111-11-11T11:11:11.111Z", 1);
+let testDate = Date.now().toString();
+
+let testEntry = createEntry(1, "1", "1", 1, "NOW()", 1);
 insertEntry(testEntry);
