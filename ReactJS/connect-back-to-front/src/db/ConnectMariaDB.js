@@ -111,7 +111,5 @@ function createEntry(roomNumber, firstName, lastName, eMail, dateTime, machine) 
 //getEntrys(buildQuerryCall());
 //disconnectDatabase();
 
-let testDate = Date.now().toString();
-
 let testEntry = createEntry(1, "1", "1", 1, "NOW()", 1);
 insertEntry(testEntry);
