@@ -11,7 +11,7 @@ var pool = mariaDB.createConnection({
 
 //~ Connect & Disconnect services
 /**
- * Connects to database
+ * Connects to database 
  * @throws throws as error if connection is not established
  */
 async function connectDatabase() {
@@ -44,11 +44,23 @@ function getEntrys(querryCommand) {
  * @param {JSON} entry - The whole entry as JSON object
  */
  function insertEntry(entry) {
-    let sqlCommand = `INSERT INTO Reservations ()${entry.LastName}`; // check if not empty
-    console.log(sqlCommand);
+    //TODO: loop the json object stuff
+
+    // Look through keys
+    let insert = `INSERT INTO Reservations (${Object.keys(entry)[0]}, ${Object.keys(entry)[1]}, ${Object.keys(entry)[2]}, ${Object.keys(entry)[3]}, ${Object.keys(entry)[4]}, ${Object.keys(entry)[5]})`;
+    let into = `VALUES (${entry[0]}, ${entry[1]}, ${entry[2]}, ${entry[3]}, ${entry[4]}, ${entry[5]});`;
+
+    let sqlCommand = insert + ' ' + into;
+    pool.query(sqlCommand, function (err, result) {
+        if (err) throw err;
+        console.log("result");
+      });
+
 }
 
 //~ Additional services
+
+//! Is this realy necessary / usable?
 /**
  * Builds querry string
  * @param {String} opt_one - INSERT, SELECT, DELETE or UPDATE 
@@ -66,17 +78,20 @@ function buildQuerryCall(opt_one, opt_two, opt_three, opt_four) {
 }
 
 /**
- * Create a entry as JSON object
+ * Create a entry as JSON object and returns it
  * @param {SMALLINT} roomNumber - Number of Room
  * @param {String} firstName - First name
  * @param {String} lastName - Sure name
  * @param {String} eMail - E-Mail address
  * @param {DateTime} dateTime - Date and Time
  * @param {TINYINT} machine - Machine number 
- * @returns {JSON} insertEntry - Created object
+ * @returns {JSON} insertEntry - Created Entry object as JSON
  */
 function createEntry(roomNumber, firstName, lastName, eMail, dateTime, machine) {
-    let insertEntry = {
+
+    // TODO: In case of no available value for entry put a default value
+
+    let entry = {
         RoomNumber: roomNumber,
         FirstName: firstName,
         LastName: lastName,
@@ -84,16 +99,17 @@ function createEntry(roomNumber, firstName, lastName, eMail, dateTime, machine) 
         DateTime: dateTime,
         Machine: machine
     };
-    console.log("Insert created: " + insertEntry);
-    return insertEntry;
+
+    console.log("Insert created: " + entry);
+    return entry;
 }
 
 //TODO: Add Promise
 
 connectDatabase();
-let sqlCommand = buildQuerryCall();
+//let sqlCommand = buildQuerryCall();
 //getEntrys(buildQuerryCall());
-disconnectDatabase();
+//disconnectDatabase();
 
 let testEntry = createEntry(1, "1", "1", 1, "1111-11-11T11:11:11.111Z", 1);
 insertEntry(testEntry);
