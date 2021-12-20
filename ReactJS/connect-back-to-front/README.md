@@ -1,14 +1,14 @@
-Alle Schritte zum verwenden und aktivieren des Back-Ends wurden dokumentiert und sorgfälltig aufgeschrieben. Als Github Repo sind alle dependencis vorhanden und müssen einmal als RectJS lokal installiert werden.
+All steps to use and activate the back-end have been documented and carefully written down. All dependencies are available as a Github repo and must be installed locally once as RectJS.
 
-# Das Backend:
-`https://github.com/Dawinartor/Prog-Lesson/tree/master/ReactJS/connect-back-to-front`
+# The backend code:
+[`https://github.com/Dawinartor/Prog-Lesson/tree/master/ReactJS/connect-back-to-front`](https://github.com/Dawinartor/Prog-Lesson/tree/master/ReactJS/connect-back-to-front)
 
-Um den Docker Kontainer verwenden zu können müssen weitere Schritte erledigt werden. Die Kontainer m+ssen manuel aufgesetzt werden und auf der lokalen Maschiene verbunden werden um mit dem Back-End verwendet werden zu können.
+In order to use the Docker container, further steps need to be taken. The containers have to be set up manually and connected to the local machine to be used with the back-end.
 
-# Die Docker Container Dokumentation:
-`https://earthy-glade-4f0.notion.site/Create-DB-Connect-NodeJS-eed628c11ce74bfd86854bf0a6d988be`
+# The Docker Container documentation:
+[`https://earthy-glade-4f0.notion.site/Create-DB-Connect-NodeJS-eed628c11ce74bfd86854bf0a6d988be`](https://earthy-glade-4f0.notion.site/Create-DB-Connect-NodeJS-eed628c11ce74bfd86854bf0a6d988be)
 
-Als letztes folgt noch eine Auflistung welche die Arbeitsteilung zwischen dem Backend und dem Frontend auflisted. 
+Finally, there is a list of the division of labour between the backend and the frontend. 
 
-# Arbeitsteilung
-
+# Backend progress
+[`https://earthy-glade-4f0.notion.site/Backend-progress-fb5ccb77a033422aac101b83c9181e9f`](https://earthy-glade-4f0.notion.site/Backend-progress-fb5ccb77a033422aac101b83c9181e9f)
